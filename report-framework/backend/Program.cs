@@ -70,8 +70,14 @@ app.MapPost("/api/v1/convert", async (HttpRequest http, IConfiguration cfg, Canc
     if (file is null || file.Length == 0)
         return Results.BadRequest(new { status = "error", message = "No file uploaded." });
 
-    // 1) save to temp
-    var tmp = Path.Combine(Path.GetTempPath(), $"rpt_{Guid.NewGuid():N}.rpt");
+    // 1) save to temp under a unique dir, but keep the report's ORIGINAL file name so the
+    //    converter derives the template id/title from it (e.g. "Export Invoice Sale.rpt"
+    //    -> id "export-invoice-sale") instead of a random GUID.
+    var tmpDir = Path.Combine(Path.GetTempPath(), $"rptin_{Guid.NewGuid():N}");
+    Directory.CreateDirectory(tmpDir);
+    var safeName = Path.GetFileName(file.FileName);   // strip any client-supplied path
+    if (string.IsNullOrWhiteSpace(safeName)) safeName = "report.rpt";
+    var tmp = Path.Combine(tmpDir, safeName);
     await using (var fs = File.Create(tmp))
         await file.CopyToAsync(fs, ct);
 
@@ -137,7 +143,7 @@ app.MapPost("/api/v1/convert", async (HttpRequest http, IConfiguration cfg, Canc
     }
     finally
     {
-        try { File.Delete(tmp); } catch { /* best effort */ }
+        try { Directory.Delete(tmpDir, recursive: true); } catch { /* best effort */ }
     }
 });
 

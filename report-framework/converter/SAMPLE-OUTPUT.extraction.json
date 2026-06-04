@@ -1,0 +1,46 @@
+{
+  "_note": "ILLUSTRATIVE sample of what rpt2template emits for 'Export Invoice Sale.rpt'. The real file is produced on Windows by the SDK; this shows the shape so you can plan the mapping without a Windows box.",
+  "reportName": "Export Invoice Sale.rpt",
+  "recordSelectionFormula": "{VIW_SALE_MASTER_DETAIL.SALE_NO} = {?SaleNo}",
+  "tables": [
+    { "name": "VIW_SALE_MASTER_DETAIL", "location": "VIW_SALE_MASTER_DETAIL" }
+  ],
+  "sql": "SELECT * FROM VIW_SALE_MASTER_DETAIL WHERE SALE_NO = @SaleNo",
+  "formulaFields": [
+    { "name": "GrandTotal", "formula": "{@GrandTotal}", "text": "Sum({VIW_SALE_MASTER_DETAIL.AMOUNT_DOLLAR})", "type": "CurrencyField" },
+    { "name": "TotalCarat", "formula": "{@TotalCarat}", "text": "Sum({VIW_SALE_MASTER_DETAIL.SALE_CARAT})", "type": "NumberField" },
+    { "name": "EurToUsd", "formula": "{@EurToUsd}", "text": "1 / {VIW_SALE_MASTER_DETAIL.LOCAL_EXCHANGE_RATE}", "type": "NumberField" },
+    { "name": "ShipCharge", "formula": "{@ShipCharge}", "text": "If IsNull({VIW_SALE_MASTER_DETAIL.SHIPPING_CHARGES}) Then 'COLLECT' Else {VIW_SALE_MASTER_DETAIL.SHIPPING_CHARGES}", "type": "StringField" }
+  ],
+  "parameterFields": [
+    { "name": "SaleNo", "formula": "{?SaleNo}", "type": "NumberField", "prompt": "Enter Sale No" }
+  ],
+  "groups": [
+    { "conditionField": "{@ArticleClass}" }
+  ],
+  "sections": [
+    {
+      "name": "ReportHeaderSection1", "kind": "ReportHeader", "height": 3200,
+      "objects": [
+        { "name": "Text1", "kind": "TextObject", "left": 1400, "top": 100, "width": 3000, "height": 280, "text": "I N V O I C E", "font": "Arial", "fontSize": 12, "bold": true },
+        { "name": "logo",  "kind": "PictureObject", "left": 200, "top": 80, "width": 900, "height": 900 },
+        { "name": "Field_CompanyName", "kind": "FieldObject", "left": 1100, "top": 100, "width": 2400, "height": 260, "dataSource": "{VIW_SALE_MASTER_DETAIL.COMPANY_NAME}", "font": "Arial", "fontSize": 14, "bold": true },
+        { "name": "Field_BillOfEntry", "kind": "FieldObject", "left": 5600, "top": 380, "width": 1800, "height": 240, "dataSource": "{VIW_SALE_MASTER_DETAIL.BILL_OF_ENTRY_NO}", "font": "Arial", "fontSize": 10, "bold": true }
+      ]
+    },
+    {
+      "name": "DetailSection1", "kind": "Detail", "height": 240,
+      "objects": [
+        { "name": "Field_Desc", "kind": "FieldObject", "left": 200, "top": 0, "width": 3400, "height": 220, "dataSource": "{VIW_SALE_MASTER_DETAIL.DET_DESCRIPTION}", "font": "Arial", "fontSize": 9, "bold": false }
+      ]
+    },
+    {
+      "name": "GroupFooterSection1", "kind": "GroupFooter", "height": 260,
+      "objects": [
+        { "name": "Text_Class",   "kind": "TextObject",  "left": 200,  "top": 0, "width": 3400, "height": 220, "text": "Polished Natural Diamonds", "font": "Arial", "fontSize": 10, "bold": true },
+        { "name": "Sum_Carat",    "kind": "FieldObject", "left": 3700, "top": 0, "width": 900,  "height": 220, "dataSource": "{@TotalCarat}",  "font": "Arial", "fontSize": 10, "bold": true },
+        { "name": "Sum_Amount",   "kind": "FieldObject", "left": 5600, "top": 0, "width": 1400, "height": 220, "dataSource": "{@GrandTotal}",  "font": "Arial", "fontSize": 10, "bold": true }
+      ]
+    }
+  ]
+}

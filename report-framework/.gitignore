@@ -1,0 +1,13 @@
+# node
+frontend/node_modules/
+frontend/dist/
+
+# .NET
+backend/bin/
+backend/obj/
+converter/RptToTemplate/bin/
+converter/RptToTemplate/obj/
+
+# misc
+.DS_Store
+*.log

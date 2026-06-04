@@ -1,0 +1,246 @@
+{
+  "id": "export-invoice-sale",
+  "title": "Export Invoice Sale",
+  "version": "1.0.0",
+  "sourceRpt": "Export Invoice Sale.rpt",
+  "page": { "size": "A4", "orientation": "portrait", "marginsMm": { "top": 12, "right": 12, "bottom": 12, "left": 12 } },
+
+  "dataSource": {
+    "endpoint": "/api/v1/n1/dynamic-query-data",
+    "method": "GET",
+    "params": {
+      "location": "{{param.location}}",
+      "Name": "VIW_SALE_MASTER_DETAIL",
+      "Criteria": "SALE_NO={{param.saleNo}}"
+    },
+    "rowsPath": "raw_response.Data"
+  },
+
+  "params": [
+    { "name": "location", "label": "Location", "type": "string", "required": true, "default": "ANT" },
+    { "name": "saleNo", "label": "Sale No", "type": "number", "required": true, "default": "1135675" }
+  ],
+
+  "header": {
+    "companyName": "COMPANY_NAME",
+    "companyAddress": "COMP_ADDRESS",
+    "companyCode": "COMPANY_CODE",
+    "invoiceNo": "BILL_OF_ENTRY_NO",
+    "saleDate": "SALE_DATE",
+    "deliveryDate": "SALE_DATE",
+    "shippedBy": "SHIPPED_BY",
+    "insuredBy": "INSURED_BY",
+    "billToName": "TO_PARTY_NAME",
+    "billToAddress": "TO_PARTY_ADDRESS",
+    "country": "COUNTRY_NAME",
+    "phone": "TPOFCPHONE",
+    "fax": "TPOFCFAX",
+    "vat": "TPFACFAX1",
+    "remark": "REMARKS",
+    "paymentTerms": "PAYMENT_DAYS",
+    "dueDate": "PAYMENT_DATE",
+    "localExchangeRate": "LOCAL_EXCHANGE_RATE",
+    "shippingCharges": "SHIPPING_CHARGES"
+  },
+
+  "computed": {
+    "totalCarat": { "fn": "sum", "field": "SALE_CARAT", "scope": "rows" },
+    "grandTotal": { "fn": "sum", "field": "AMOUNT_DOLLAR", "scope": "rows" },
+    "eurToUsd": { "fn": "divide", "args": [1, "{{header.localExchangeRate}}"] }
+  },
+
+  "groups": [
+    {
+      "id": "lines",
+      "by": "'Polished Natural Diamonds'",
+      "aggregates": {
+        "carats": { "fn": "sum", "field": "SALE_CARAT", "scope": "groupRows" },
+        "amount": { "fn": "sum", "field": "AMOUNT_DOLLAR", "scope": "groupRows" },
+        "ppc": {
+          "fn": "divide",
+          "args": [
+            { "fn": "sum", "field": "AMOUNT_DOLLAR", "scope": "groupRows" },
+            { "fn": "sum", "field": "SALE_CARAT", "scope": "groupRows" }
+          ]
+        }
+      }
+    }
+  ],
+
+  "constants": {
+    "currency": "$",
+    "logoUrl": "/logo-kgk.svg",
+    "shippingChargesDefault": "COLLECT",
+    "payableNote": "Payable only in USD",
+    "companyBank": {
+      "name": "ABN AMRO BANK",
+      "lines": [
+        "IBAN : BE 65 6744 0005 6296",
+        "BANK ACCOUNT NUMBER : 6744 0005 6296",
+        "SWIFT CODE :ABNABE2AIDJ",
+        "BANK ADDRESS :PELIKAANSTRAAT 70 - 76,ANTWERP -2018 ,BELGIUM",
+        "CORRESPONDENT BANK : BANK OF AMERICA, NEWYORK",
+        "CORR BANK SWIFT CODE : BOFAUS3N"
+      ]
+    },
+    "remitNotice": "Please remit the payment to us as per Bank details only. Under any circumstances, please do not remit payment to Beneficiary other than KGK Diamonds BV. The Company shall not be liable for any loss or damage arising out of or resulting from the remittance made to beneficiary other than KGK Diamonds BV\"",
+    "legalTerms": [
+      "*The Antwerp Tribunal of Commerce is solely competent in case of litigation",
+      "*Vrijstelling van B.T.W. Art. 42 § 4 / 39bis, 1°/39, § 1,1° van het wetboek",
+      "1. The diamonds herein invoiced have been purchased from legitimate sources not involved in funding conflict, in compliance with United Nations Resolutions and corresponding national laws. The seller hereby guarantees that these diamonds are conflict free and confirms adherence to the World Diamond Council System of Warranties Guidelines.",
+      "2. The diamonds herein invoiced are exclusively of natural origin and untreated based on personal knowledge and / or written guarantees provided by the supplier of these diamonds.",
+      "3. To the best of our knowledge and / or written assurances from our Suppliers, we state that Diamonds herein invoiced have not been obtained in violation of applicable National laws and / or sanctions by the U.S. Department of Treasury's office of Foreign Assets Control (OFAC) and have not originated from the Mbada and Marrange Resources of Zimbabwe.",
+      "4. The acceptance of goods herein invoiced will be as per the WFDB guidelines.",
+      "5. This shipment does not contain any diamonds (or products containing diamonds) which originated from, manufactured in or transited through Russia. Therefore, this shipment is also not subject to restrictions of Reg. EU 833/2014 (Article 3p)"
+    ]
+  },
+
+  "body": [
+    {
+      "type": "row",
+      "id": "top-band",
+      "widths": [60, 40],
+      "gap": 16,
+      "children": [
+        {
+          "type": "row",
+          "gap": 10,
+          "widths": ["64px", 1],
+          "children": [
+            { "type": "image", "src": "{{constants.logoUrl}}", "style": { "width": "64px" } },
+            {
+              "type": "column",
+              "children": [
+                { "type": "text", "text": "{{header.companyName}}", "style": { "fontSize": 15, "fontWeight": 700 } },
+                { "type": "text", "text": "{{header.companyAddress}}", "style": { "fontSize": 8, "whiteSpace": "pre-line", "marginTop": 2 } }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "column",
+          "children": [
+            { "type": "text", "text": "I N V O I C E", "className": "section-title", "style": { "fontSize": 13, "fontWeight": 700, "background": "#e8e8e8", "padding": "3px 6px", "letterSpacing": "2px" } },
+            { "type": "text", "text": "{{header.invoiceNo}}", "style": { "fontWeight": 700, "marginTop": 6, "marginBottom": 4 } },
+            { "type": "labeledField", "className": "split", "label": "Date:", "value": "{{header.saleDate | date:dd/MM/yyyy}}" },
+            { "type": "labeledField", "className": "split", "label": "Delivery Date:", "value": "{{header.deliveryDate | date:dd/MM/yyyy}}" },
+            { "type": "labeledField", "className": "split", "label": "Shipped By:", "value": "{{header.shippedBy}}" },
+            { "type": "labeledField", "className": "split", "label": "Insured By:", "value": "{{header.insuredBy}}" }
+          ]
+        }
+      ]
+    },
+
+    { "type": "text", "text": "Bill To:", "style": { "fontWeight": 700, "background": "#e8e8e8", "padding": "3px 6px", "marginTop": 8 } },
+
+    {
+      "type": "column",
+      "style": { "marginTop": 6 },
+      "children": [
+        { "type": "text", "text": "{{header.billToName}}", "style": { "fontWeight": 700 } },
+        { "type": "text", "text": "{{header.billToAddress}}", "style": { "fontSize": 9 } },
+        { "type": "spacer", "height": 8 },
+        { "type": "labeledField", "label": "Country :", "value": "{{header.country}}" },
+        { "type": "labeledField", "label": "Phone:", "value": "{{header.phone}}" },
+        { "type": "labeledField", "label": "Fax:", "value": "{{header.fax}}" },
+        { "type": "labeledField", "label": "Vat:", "value": "{{header.vat}}" },
+        { "type": "labeledField", "label": "Remark:", "value": "{{header.remark}}" }
+      ]
+    },
+
+    { "type": "spacer", "height": 12 },
+
+    {
+      "type": "table",
+      "id": "lineItems",
+      "data": "groupRows",
+      "groupRef": "lines",
+      "columns": [
+        { "header": "Details", "cell": "{{group.key}}", "align": "left", "width": "46%", "style": { "fontWeight": 700, "padding": "8px 6px" } },
+        { "header": "Carats", "cell": "{{group.carats | number:2}}", "align": "right", "width": "16%", "style": { "fontWeight": 700 } },
+        { "header": "PPC", "cell": "{{group.ppc | number:2}}", "align": "right", "width": "16%", "style": { "fontWeight": 700 } },
+        { "header": "Total USD", "cell": "{{constants.currency}} {{group.amount | money}}", "align": "right", "width": "22%", "style": { "fontWeight": 700 } }
+      ],
+      "footerRows": [
+        [
+          { "text": "Total :", "align": "right", "style": { "fontWeight": 700 } },
+          { "text": "{{computed.totalCarat | number:2}}", "align": "right", "style": { "fontWeight": 700 } },
+          { "text": "Total USD", "align": "center", "style": { "fontWeight": 700 } },
+          { "text": "{{constants.currency}} {{computed.grandTotal | money}}", "align": "right", "style": { "fontWeight": 700 } }
+        ],
+        [
+          { "text": "Grand Total", "align": "right", "colSpan": 3, "style": { "fontWeight": 700, "fontSize": 13 } },
+          { "text": "{{constants.currency}} {{computed.grandTotal | money}}", "align": "right", "style": { "fontWeight": 700, "fontSize": 13 } }
+        ]
+      ]
+    },
+
+    { "type": "text", "text": "1 Euro =  {{computed.eurToUsd | number:4}} USD", "style": { "fontSize": 9, "marginTop": 6 } },
+    { "type": "text", "text": "{{constants.payableNote}}", "style": { "fontWeight": 700, "marginTop": 10 } },
+
+    { "type": "spacer", "height": 10 },
+
+    {
+      "type": "row",
+      "id": "payment-band",
+      "widths": [55, 45],
+      "gap": 0,
+      "children": [
+        {
+          "type": "html",
+          "html": "<table class='pay-box'><tr><td class='pay-label'>Payment Terms</td><td class='pay-val'>{{header.paymentTerms}}</td><td class='pay-blank'></td></tr><tr><td class='pay-label'>Due Date:</td><td class='pay-val'>{{header.dueDate | date:dd/MM/yyyy}}</td><td class='pay-amt'>{{constants.currency}} {{computed.grandTotal | money}}</td></tr></table>"
+        },
+        { "type": "spacer" }
+      ]
+    },
+
+    {
+      "type": "row",
+      "gap": 6,
+      "style": { "marginTop": 8 },
+      "widths": ["140px", 1],
+      "children": [
+        { "type": "text", "text": "SHIPPING CHARGES:", "style": { "fontWeight": 700, "color": "#1c3f94" } },
+        { "type": "text", "text": "{{header.shippingCharges | default:COLLECT}}", "style": { "fontWeight": 700, "color": "#1c3f94" } }
+      ]
+    },
+
+    {
+      "type": "row",
+      "gap": 10,
+      "style": { "marginTop": 4 },
+      "widths": ["90px", 1],
+      "children": [
+        { "type": "text", "text": "Bank Details", "style": { "fontWeight": 700, "textDecoration": "underline" } },
+        {
+          "type": "column",
+          "children": [
+            { "type": "text", "text": "{{constants.companyBank.name}}", "style": { "fontWeight": 700, "fontSize": 9 } },
+            { "type": "richtext", "lines": [
+              "{{constants.companyBank.lines.0}}",
+              "{{constants.companyBank.lines.1}}",
+              "{{constants.companyBank.lines.2}}",
+              "{{constants.companyBank.lines.3}}",
+              "{{constants.companyBank.lines.4}}",
+              "{{constants.companyBank.lines.5}}"
+            ], "style": { "fontSize": 9, "fontWeight": 700 } }
+          ]
+        }
+      ]
+    },
+
+    { "type": "spacer", "height": 16 },
+    { "type": "text", "text": "{{constants.remitNotice}}", "style": { "fontSize": 8.5, "color": "#222" } },
+    { "type": "spacer", "height": 14 },
+    { "type": "richtext", "lines": [
+      "{{constants.legalTerms.0}}",
+      "{{constants.legalTerms.1}}",
+      "{{constants.legalTerms.2}}",
+      "{{constants.legalTerms.3}}",
+      "{{constants.legalTerms.4}}",
+      "{{constants.legalTerms.5}}",
+      "{{constants.legalTerms.6}}",
+      "{{constants.legalTerms.7}}"
+    ], "style": { "fontSize": 8, "color": "#222" } }
+  ]
+}

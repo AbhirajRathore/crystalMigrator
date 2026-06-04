@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- CrystalDecisions assemblies are .NET Framework. Build/run on Windows. -->
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>rpt2template</AssemblyName>
+    <Platforms>x86;x64</Platforms>
+    <!-- CR runtime is bitness-specific; match it. x86 is the safest default. -->
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <!--
+    These assemblies ship with the FREE "SAP Crystal Reports, developer version
+    for Microsoft Visual Studio" (SP runtime). After installing it, they live in
+    the GAC and under the install folder. Adjust HintPath to your install, or
+    install the SAP.Sdk.CrystalReports NuGet if your org mirrors it.
+  -->
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc">
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+</Project>

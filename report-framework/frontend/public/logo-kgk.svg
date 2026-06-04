@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="56" fill="none" stroke="#111" stroke-width="4"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="60" y="58" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#111">KGK</text>
+  <text x="60" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="9" letter-spacing="1.5" fill="#111">SINCE 1905</text>
+</svg>

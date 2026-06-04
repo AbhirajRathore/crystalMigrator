@@ -1,0 +1,196 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kgk.local/report-template.schema.json",
+  "title": "ReportTemplate",
+  "description": "Declarative, data-driven report definition migrated from a Crystal Reports .rpt file. Rendered by the React engine (and optionally the .NET backend) against rows returned by an API endpoint.",
+  "type": "object",
+  "required": ["id", "title", "dataSource", "body"],
+  "properties": {
+    "id": { "type": "string", "description": "Unique report id, e.g. 'export-invoice-sale'." },
+    "title": { "type": "string" },
+    "version": { "type": "string", "default": "1.0.0" },
+    "sourceRpt": { "type": "string", "description": "Original .rpt filename this template was migrated from." },
+    "page": {
+      "type": "object",
+      "properties": {
+        "size": { "type": "string", "enum": ["A4", "Letter", "Legal"], "default": "A4" },
+        "orientation": { "type": "string", "enum": ["portrait", "landscape"], "default": "portrait" },
+        "marginsMm": {
+          "type": "object",
+          "properties": {
+            "top": { "type": "number" }, "right": { "type": "number" },
+            "bottom": { "type": "number" }, "left": { "type": "number" }
+          }
+        }
+      }
+    },
+    "dataSource": {
+      "type": "object",
+      "description": "How the frontend fetches the rows for this report.",
+      "required": ["rowsPath"],
+      "properties": {
+        "endpoint": { "type": "string", "description": "Backend endpoint path, e.g. /api/v1/n1/dynamic-query-data." },
+        "method": { "type": "string", "default": "GET" },
+        "params": {
+          "type": "object",
+          "description": "Query params; values may contain {{param}} placeholders filled from runtime args.",
+          "additionalProperties": { "type": "string" }
+        },
+        "rowsPath": { "type": "string", "description": "Dot path inside the JSON response to the array of detail rows, e.g. 'raw_response.Data'." }
+      }
+    },
+    "params": {
+      "type": "array",
+      "description": "Runtime parameters the user supplies (e.g. saleNo). Used to fill dataSource.params placeholders.",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "label": { "type": "string" },
+          "type": { "type": "string", "enum": ["string", "number", "date"], "default": "string" },
+          "required": { "type": "boolean", "default": true },
+          "default": {}
+        }
+      }
+    },
+    "header": {
+      "type": "object",
+      "description": "Single-record fields, taken from the first row (Crystal's report-header band). Map of alias -> source field name or expression.",
+      "additionalProperties": { "type": "string" }
+    },
+    "computed": {
+      "type": "object",
+      "description": "Derived values. Each is an aggregation/expression object evaluated once over the row set.",
+      "additionalProperties": { "$ref": "#/definitions/expr" }
+    },
+    "groups": {
+      "type": "array",
+      "description": "Group/summarise detail rows (Crystal group sections). Produces 'groupRows' usable by table blocks.",
+      "items": {
+        "type": "object",
+        "required": ["id", "by"],
+        "properties": {
+          "id": { "type": "string" },
+          "by": { "type": "string", "description": "Field to group by, or a literal in quotes for a single group, e.g. \"'Polished Natural Diamonds'\"." },
+          "aggregates": {
+            "type": "object",
+            "additionalProperties": { "$ref": "#/definitions/expr" }
+          }
+        }
+      }
+    },
+    "constants": {
+      "type": "object",
+      "description": "Static text blocks not coming from data (bank details, legal terms), optionally keyed by a data value such as company code.",
+      "additionalProperties": {}
+    },
+    "body": {
+      "type": "array",
+      "description": "Ordered layout blocks rendered top to bottom.",
+      "items": { "$ref": "#/definitions/block" }
+    }
+  },
+  "definitions": {
+    "expr": {
+      "description": "A computed value. Either a literal, a {{binding}} string, or a function object.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        {
+          "type": "object",
+          "required": ["fn"],
+          "properties": {
+            "fn": { "type": "string", "enum": ["sum", "count", "avg", "min", "max", "first", "divide", "subtract", "multiply", "concat", "ifNull"] },
+            "field": { "type": "string" },
+            "args": { "type": "array", "items": { "$ref": "#/definitions/expr" } },
+            "scope": { "type": "string", "enum": ["rows", "groupRows"], "default": "rows" }
+          }
+        }
+      ]
+    },
+    "value": {
+      "type": "string",
+      "description": "A bindable string. Supports {{path}} interpolation and pipe filters: {{header.X | money:$}}, {{computed.total | number:2}}, {{row.SALE_DATE | date:dd/MM/yyyy}}. Paths: header.*, computed.*, constants.*, param.*, row.* (inside table), group.* (inside grouped table)."
+    },
+    "block": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["row", "column", "text", "field", "labeledField", "image", "spacer", "rule", "table", "html", "richtext"] },
+        "id": { "type": "string" },
+        "if": { "type": "string", "description": "Binding expression; block hidden when it resolves falsy/empty." },
+        "style": { "$ref": "#/definitions/style" },
+        "className": { "type": "string" },
+
+        "children": { "type": "array", "items": { "$ref": "#/definitions/block" }, "description": "For 'row'/'column' container blocks." },
+        "gap": { "type": "number", "description": "Flex gap in px for containers." },
+        "widths": { "type": "array", "items": { "type": ["number", "string"] }, "description": "Column widths for a 'row' (flex grow numbers or CSS sizes)." },
+
+        "text": { "$ref": "#/definitions/value", "description": "For 'text'/'field': the bindable content." },
+        "label": { "type": "string", "description": "For 'labeledField': static label." },
+        "value": { "$ref": "#/definitions/value", "description": "For 'labeledField': bindable value." },
+        "src": { "$ref": "#/definitions/value", "description": "For 'image': url or asset key." },
+        "lines": { "type": "array", "items": { "$ref": "#/definitions/value" }, "description": "For 'richtext': array of bindable lines." },
+        "height": { "type": "number", "description": "For 'spacer'/'rule'." },
+
+        "data": { "type": "string", "enum": ["rows", "groupRows"], "description": "For 'table': which row set to iterate." },
+        "groupRef": { "type": "string", "description": "For 'table' with data=groupRows: which group id." },
+        "columns": {
+          "type": "array",
+          "description": "For 'table': column definitions.",
+          "items": {
+            "type": "object",
+            "required": ["header", "cell"],
+            "properties": {
+              "header": { "type": "string" },
+              "cell": { "$ref": "#/definitions/value", "description": "Bindable; 'row.*'/'group.*' available." },
+              "align": { "type": "string", "enum": ["left", "center", "right"], "default": "left" },
+              "width": { "type": ["number", "string"] },
+              "style": { "$ref": "#/definitions/style" },
+              "headerStyle": { "$ref": "#/definitions/style" }
+            }
+          }
+        },
+        "footerRows": {
+          "type": "array",
+          "description": "For 'table': summary rows appended below the body (totals).",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": { "$ref": "#/definitions/value" },
+                "align": { "type": "string", "enum": ["left", "center", "right"] },
+                "colSpan": { "type": "number" },
+                "style": { "$ref": "#/definitions/style" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "description": "Whitelisted CSS-ish props applied inline.",
+      "properties": {
+        "fontSize": { "type": ["number", "string"] },
+        "fontWeight": { "type": ["number", "string"] },
+        "fontStyle": { "type": "string" },
+        "color": { "type": "string" },
+        "background": { "type": "string" },
+        "textAlign": { "type": "string" },
+        "padding": { "type": ["number", "string"] },
+        "border": { "type": "string" },
+        "borderTop": { "type": "string" },
+        "borderBottom": { "type": "string" },
+        "width": { "type": ["number", "string"] },
+        "marginTop": { "type": ["number", "string"] },
+        "marginBottom": { "type": ["number", "string"] },
+        "whiteSpace": { "type": "string" },
+        "letterSpacing": { "type": ["number", "string"] },
+        "textTransform": { "type": "string" }
+      }
+    }
+  }
+}

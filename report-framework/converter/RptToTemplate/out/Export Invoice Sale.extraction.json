@@ -1,0 +1,1944 @@
+{
+  "reportName": "",
+  "recordSelectionFormula": "",
+  "tables": [
+    {
+      "name": "DataTable1",
+      "location": "DataTable1"
+    }
+  ],
+  "databaseFields": [
+    {
+      "name": "FIN_YEAR1",
+      "formula": "{DataTable1.FIN_YEAR1}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_NO",
+      "formula": "{DataTable1.SALE_NO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_DATE",
+      "formula": "{DataTable1.SALE_DATE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_TYPE_CODE",
+      "formula": "{DataTable1.SALE_TYPE_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_TYPE_NAME",
+      "formula": "{DataTable1.SALE_TYPE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_SUB_PARTY_CODE",
+      "formula": "{DataTable1.FROM_SUB_PARTY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_SUB_PARTY_NAME",
+      "formula": "{DataTable1.FROM_SUB_PARTY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_PARTY_CODE",
+      "formula": "{DataTable1.FROM_PARTY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_PARTY_NAME",
+      "formula": "{DataTable1.FROM_PARTY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_PARTY_GROUP_CODE",
+      "formula": "{DataTable1.FROM_PARTY_GROUP_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_PARTY_GROUP_NAME",
+      "formula": "{DataTable1.FROM_PARTY_GROUP_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FROM_PARTY_ADDRESS",
+      "formula": "{DataTable1.FROM_PARTY_ADDRESS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPOFCPHONENO",
+      "formula": "{DataTable1.FPOFCPHONENO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPOFCFAX",
+      "formula": "{DataTable1.FPOFCFAX}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPOFCEMAIL",
+      "formula": "{DataTable1.FPOFCEMAIL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPFACPHONENO",
+      "formula": "{DataTable1.FPFACPHONENO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPFACFAX",
+      "formula": "{DataTable1.FPFACFAX}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPFACEMAIL",
+      "formula": "{DataTable1.FPFACEMAIL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPGST",
+      "formula": "{DataTable1.FPGST}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FPPAN",
+      "formula": "{DataTable1.FPPAN}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_SUB_PARTY_CODE",
+      "formula": "{DataTable1.TO_SUB_PARTY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_SUB_PARTY_NAME",
+      "formula": "{DataTable1.TO_SUB_PARTY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_PARTY_CODE",
+      "formula": "{DataTable1.TO_PARTY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_PARTY_NAME",
+      "formula": "{DataTable1.TO_PARTY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_PARTY_GROUP_CODE",
+      "formula": "{DataTable1.TO_PARTY_GROUP_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_PARTY_GROUP_NAME",
+      "formula": "{DataTable1.TO_PARTY_GROUP_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TO_PARTY_ADDRESS",
+      "formula": "{DataTable1.TO_PARTY_ADDRESS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPOFCPHONE",
+      "formula": "{DataTable1.TPOFCPHONE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPOFCFAX",
+      "formula": "{DataTable1.TPOFCFAX}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPOFCEMAIL",
+      "formula": "{DataTable1.TPOFCEMAIL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPFACPHONE",
+      "formula": "{DataTable1.TPFACPHONE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPFACFAX",
+      "formula": "{DataTable1.TPFACFAX}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPFACEMAIL",
+      "formula": "{DataTable1.TPFACEMAIL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPGST",
+      "formula": "{DataTable1.TPGST}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TPPAN",
+      "formula": "{DataTable1.TPPAN}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THIRD_SUB_PARTY_CODE",
+      "formula": "{DataTable1.THIRD_SUB_PARTY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THIRD_SUB_PARTY_NAME",
+      "formula": "{DataTable1.THIRD_SUB_PARTY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THIRD_PARTY_CODE",
+      "formula": "{DataTable1.THIRD_PARTY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THIRD_PARTY_NAME",
+      "formula": "{DataTable1.THIRD_PARTY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THIRD_PARTY_GROUP_CODE",
+      "formula": "{DataTable1.THIRD_PARTY_GROUP_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THIRD_PARTY_GROUP_NAME",
+      "formula": "{DataTable1.THIRD_PARTY_GROUP_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "DEAL_TYPE",
+      "formula": "{DataTable1.DEAL_TYPE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BROKER_CODE",
+      "formula": "{DataTable1.BROKER_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BROKER_NAME",
+      "formula": "{DataTable1.BROKER_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "LOCAL_CURRENCY_CODE",
+      "formula": "{DataTable1.LOCAL_CURRENCY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "LOCAL_CURRENCY_NAME",
+      "formula": "{DataTable1.LOCAL_CURRENCY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "LOCAL_CURRENCY_SYMBOL",
+      "formula": "{DataTable1.LOCAL_CURRENCY_SYMBOL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "LOCAL_EXCHANGE_RATE",
+      "formula": "{DataTable1.LOCAL_EXCHANGE_RATE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_CURRENCY_CODE",
+      "formula": "{DataTable1.SALE_CURRENCY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_CURRENCY_NAME",
+      "formula": "{DataTable1.SALE_CURRENCY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_CURRENCY_SYMBOL",
+      "formula": "{DataTable1.SALE_CURRENCY_SYMBOL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_EXCHANGE_RATE",
+      "formula": "{DataTable1.SALE_EXCHANGE_RATE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "NET_AMOUNT_DOLLAR",
+      "formula": "{DataTable1.NET_AMOUNT_DOLLAR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "NET_AMOUNT_LOCAL",
+      "formula": "{DataTable1.NET_AMOUNT_LOCAL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BILL_OF_ENTRY_NO",
+      "formula": "{DataTable1.BILL_OF_ENTRY_NO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "PAYMENT_DAYS",
+      "formula": "{DataTable1.PAYMENT_DAYS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "PAYMENT_DATE",
+      "formula": "{DataTable1.PAYMENT_DATE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CCY",
+      "formula": "{DataTable1.CCY}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SECTOR_NAME",
+      "formula": "{DataTable1.SECTOR_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "MCURRENCY",
+      "formula": "{DataTable1.MCURRENCY}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SCURRENCY",
+      "formula": "{DataTable1.SCURRENCY}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "IGST_PER",
+      "formula": "{DataTable1.IGST_PER}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CGST_PER",
+      "formula": "{DataTable1.CGST_PER}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SGST_PER",
+      "formula": "{DataTable1.SGST_PER}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "IGST_AMTM",
+      "formula": "{DataTable1.IGST_AMTM}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CGST_AMTM",
+      "formula": "{DataTable1.CGST_AMTM}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SGST_AMTM",
+      "formula": "{DataTable1.SGST_AMTM}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "IGST_AMTS",
+      "formula": "{DataTable1.IGST_AMTS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CGST_AMTS",
+      "formula": "{DataTable1.CGST_AMTS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SGST_AMTS",
+      "formula": "{DataTable1.SGST_AMTS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "THROUGH",
+      "formula": "{DataTable1.THROUGH}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_PERSON_CODE",
+      "formula": "{DataTable1.SALE_PERSON_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_PER_NAME",
+      "formula": "{DataTable1.SALE_PER_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "INVOICE_NO",
+      "formula": "{DataTable1.INVOICE_NO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "LOT_ID",
+      "formula": "{DataTable1.LOT_ID}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SRNO",
+      "formula": "{DataTable1.SRNO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "ARTICLE_CODE",
+      "formula": "{DataTable1.ARTICLE_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "ARTICLE_NAME",
+      "formula": "{DataTable1.ARTICLE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SOURCE_CODE",
+      "formula": "{DataTable1.SOURCE_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SOURCE_NAME",
+      "formula": "{DataTable1.SOURCE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SOURCE_COMPANY_CODE",
+      "formula": "{DataTable1.SOURCE_COMPANY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SOURCE_COMPANY_NAME",
+      "formula": "{DataTable1.SOURCE_COMPANY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "MSIZE_CODE",
+      "formula": "{DataTable1.MSIZE_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "MSIZE_NAME",
+      "formula": "{DataTable1.MSIZE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "QUALITY_CODE",
+      "formula": "{DataTable1.QUALITY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "QUALITY_NAME",
+      "formula": "{DataTable1.QUALITY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SUBQUALITY_CODE",
+      "formula": "{DataTable1.SUBQUALITY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SUBQUALITY_NAME",
+      "formula": "{DataTable1.SUBQUALITY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SIGHT_TYPE_CODE",
+      "formula": "{DataTable1.SIGHT_TYPE_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SIGHT_TYPE_NAME",
+      "formula": "{DataTable1.SIGHT_TYPE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TEAM_CODE",
+      "formula": "{DataTable1.TEAM_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "TEAM_NAME",
+      "formula": "{DataTable1.TEAM_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "GROUP_CODE",
+      "formula": "{DataTable1.GROUP_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "GROUP_NAME",
+      "formula": "{DataTable1.GROUP_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BOX_NO",
+      "formula": "{DataTable1.BOX_NO}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "PACKET_ID",
+      "formula": "{DataTable1.PACKET_ID}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BALANCE_PCS",
+      "formula": "{DataTable1.BALANCE_PCS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BALANCE_CARAT",
+      "formula": "{DataTable1.BALANCE_CARAT}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_PCS",
+      "formula": "{DataTable1.SALE_PCS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_CARAT",
+      "formula": "{DataTable1.SALE_CARAT}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "AVG_SALE_CARAT",
+      "formula": "{DataTable1.AVG_SALE_CARAT}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "RATE_DOLLAR",
+      "formula": "{DataTable1.RATE_DOLLAR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "RATE_LOCAL",
+      "formula": "{DataTable1.RATE_LOCAL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "RATE_SALE",
+      "formula": "{DataTable1.RATE_SALE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "AMOUNT_DOLLAR",
+      "formula": "{DataTable1.AMOUNT_DOLLAR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "AMOUNT_LOCAL",
+      "formula": "{DataTable1.AMOUNT_LOCAL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "AMOUNT_SALE",
+      "formula": "{DataTable1.AMOUNT_SALE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BROKRAGE",
+      "formula": "{DataTable1.BROKRAGE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BROKRAGE_AMOUNT_DOLLAR",
+      "formula": "{DataTable1.BROKRAGE_AMOUNT_DOLLAR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BROKRAGE_AMOUNT_LOCAL",
+      "formula": "{DataTable1.BROKRAGE_AMOUNT_LOCAL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "BROKRAGE_AMOUNT_SALE",
+      "formula": "{DataTable1.BROKRAGE_AMOUNT_SALE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_NETAMOUNT_DOLLAR",
+      "formula": "{DataTable1.SALE_NETAMOUNT_DOLLAR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_NETAMOUNT_LOCAL",
+      "formula": "{DataTable1.SALE_NETAMOUNT_LOCAL}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SHAPE_NAME",
+      "formula": "{DataTable1.SHAPE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "COLOR_CODE",
+      "formula": "{DataTable1.COLOR_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CLARITY_CODE",
+      "formula": "{DataTable1.CLARITY_CODE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "COLOR_NAME",
+      "formula": "{DataTable1.COLOR_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CLARITY_NAME",
+      "formula": "{DataTable1.CLARITY_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SIZE_NAME",
+      "formula": "{DataTable1.SIZE_NAME}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "PAYMENT_INSTRUCTIONS",
+      "formula": "{DataTable1.PAYMENT_INSTRUCTIONS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "STATE_OF_ORIGIN_GOOD",
+      "formula": "{DataTable1.STATE_OF_ORIGIN_GOOD}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "DISTRICT_OF_ORIGIN_GOOD",
+      "formula": "{DataTable1.DISTRICT_OF_ORIGIN_GOOD}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "DETAIL_OF_PREFRE_AGR",
+      "formula": "{DataTable1.DETAIL_OF_PREFRE_AGR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "COUNTRY_OF_ORIGIN_GOOD",
+      "formula": "{DataTable1.COUNTRY_OF_ORIGIN_GOOD}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "COUNTRY_OF_FINAL_DEST",
+      "formula": "{DataTable1.COUNTRY_OF_FINAL_DEST}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "PORT_OF_LOADING",
+      "formula": "{DataTable1.PORT_OF_LOADING}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "PORT_OF_DISCHARGE",
+      "formula": "{DataTable1.PORT_OF_DISCHARGE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "DOOR_TO_DOOR_INSURANCE",
+      "formula": "{DataTable1.DOOR_TO_DOOR_INSURANCE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "GROSS_WEIGHT",
+      "formula": "{DataTable1.GROSS_WEIGHT}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "DESCRIPTIONS",
+      "formula": "{DataTable1.DESCRIPTIONS}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "INV_SIZE",
+      "formula": "{DataTable1.INV_SIZE}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "INV_PURITY",
+      "formula": "{DataTable1.INV_PURITY}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SALE_NET_RATE_DOLLAR",
+      "formula": "{DataTable1.SALE_NET_RATE_DOLLAR}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SHIPPED_BY",
+      "formula": "{DataTable1.SHIPPED_BY}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "ISSURED_BY",
+      "formula": "{DataTable1.ISSURED_BY}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "SHIPPING_CHARGES",
+      "formula": "{DataTable1.SHIPPING_CHARGES}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "FREIGHT_CHARGES",
+      "formula": "{DataTable1.FREIGHT_CHARGES}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "CHARGES_TYPE1",
+      "formula": "{DataTable1.CHARGES_TYPE1}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "VAT_CHARGES",
+      "formula": "{DataTable1.VAT_CHARGES}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "OTHER_CHARGES",
+      "formula": "{DataTable1.OTHER_CHARGES}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "EXTRA_CHARGES",
+      "formula": "{DataTable1.EXTRA_CHARGES}",
+      "type": "StringField",
+      "table": "DataTable1"
+    },
+    {
+      "name": "INSURANCE_CHARGES",
+      "formula": "{DataTable1.INSURANCE_CHARGES}",
+      "type": "StringField",
+      "table": "DataTable1"
+    }
+  ],
+  "formulaFields": [
+    {
+      "name": "TotTax",
+      "formula": "{@TotTax}",
+      "text": "{LocalSaleInvoice.IGST_AMTM}\u002B{LocalSaleInvoice.CGST_AMTM}\u002B{LocalSaleInvoice.SGST_AMTM}",
+      "type": "UnknownField"
+    },
+    {
+      "name": "TotalWithTax",
+      "formula": "{@TotalWithTax}",
+      "text": "{LocalSaleInvoice.SALE_NETAMOUNT_DOLLAR}\u002B{LocalSaleInvoice.IGST_AMTM}\u002B{LocalSaleInvoice.CGST_AMTM}\u002B{LocalSaleInvoice.SGST_AMTM}",
+      "type": "UnknownField"
+    },
+    {
+      "name": "TotTaxRs",
+      "formula": "{@TotTaxRs}",
+      "text": "{LocalSaleInvoice.IGST_AMTS}\u002B{LocalSaleInvoice.CGST_AMTS}\u002B{LocalSaleInvoice.SGST_AMTS}",
+      "type": "UnknownField"
+    },
+    {
+      "name": "TotWithTaxRs",
+      "formula": "{@TotWithTaxRs}",
+      "text": "{LocalSaleInvoice.SALE_NETAMOUNT_LOCAL}\u002B{LocalSaleInvoice.IGST_AMTS}\u002B{LocalSaleInvoice.CGST_AMTS}\u002B{LocalSaleInvoice.SGST_AMTS}",
+      "type": "UnknownField"
+    },
+    {
+      "name": "RcdCnt",
+      "formula": "{@RcdCnt}",
+      "text": null,
+      "type": "NumberField"
+    },
+    {
+      "name": "AMOUNT IN WORD",
+      "formula": "{@AMOUNT IN WORD}",
+      "text": "//{DataTable1.AMOUNT_DOLLAR}\r\nnumbervar RmVal:=0; \r\nnumbervar Amt:=0; \r\nnumbervar pAmt:=0; \r\nstringvar InWords :=\u0022\u0022; \r\nAmt :=tonumber(replace(totext(6500),\u0022/-\u0022,\u0022\u0022)); \r\n\r\nif Amt \u003E 1000000 then RmVal := truncate(Amt/1000000); \r\nif Amt = 1000000 then RmVal := 1; \r\nif RmVal \u003E= 1 then \r\n    InWords := InWords \u002B \u0022 \u0022 \u002B towords(RmVal,0) \u002B \u0022 Million\u0022;\r\n\r\nAmt := Amt - (Rmval * 1000000); \r\nRmVal := 0;\r\n\r\nif Amt \u003E 1000 then RmVal := truncate(Amt/1000); \r\nif Amt = 1000 then RmVal := 1; \r\nif RmVal \u003E=1 then \r\n    InWords := InWords \u002B \u0022 \u0022 \u002B towords(RmVal,0) \u002B \u0022 Thousand \u0022;\r\n\r\nAmt := Amt - (Rmval * 1000); \r\nRmVal := 0;\r\n\r\nif Amt \u003E 100 then RmVal := truncate(Amt/100); \r\nif Amt = 100 then RmVal := 1; \r\nif RmVal \u003E=1 then \r\n    InWords := InWords \u002B \u0022 \u0022 \u002B towords(RmVal,0) \u002B \u0022 Hundred \u0022;\r\n\r\nAmt := Amt - (Rmval * 100);\r\nRmVal := 0;\r\n\r\nif Amt \u003E 0 then InWords := InWords \u002B  towords(truncate(Amt),0)\u002B \u0022 \u0022; \r\n\r\nInWords := InWords \u002B \u0022 DOLLARS\u0022;\r\n\r\npAmt := (Amt - truncate(Amt)) * 100; \r\n\r\nif pAmt \u003E 0 then \r\n    InWords := InWords \u002B \u0022 \u0026 \u0022 \u002B towords(pAmt,0) \u002B \u0022 Cents\u0022;\r\n\r\n\r\nInWords := \u0022US DOLLAR \u0022 \u002B InWords \u002B \u0022 only\u0022; \r\n\r\nUPPERCASE(ProperCase (InWords))",
+      "type": "StringField"
+    },
+    {
+      "name": "contaim",
+      "formula": "{@contaim}",
+      "text": null,
+      "type": "StringField"
+    },
+    {
+      "name": "cONTAIN",
+      "formula": "{@cONTAIN}",
+      "text": "if(IsNull({DataTable1.DEAL_TYPE})) Then\r\n{DataTable1.DEAL_TYPE}\r\nelse\r\n{DataTable1.DEAL_TYPE}",
+      "type": "StringField"
+    },
+    {
+      "name": "shipp charge",
+      "formula": "{@shipp charge}",
+      "text": null,
+      "type": "StringField"
+    },
+    {
+      "name": "bank",
+      "formula": "{@bank}",
+      "text": "ToNumber({DataTable1.DOOR_TO_DOOR_INSURANCE})",
+      "type": "NumberField"
+    },
+    {
+      "name": "1 euro",
+      "formula": "{@1 euro}",
+      "text": "\u00221 Euro = \u0022\u002B ToText({@exc_rate}) \u002B\u0022 USD\u0022 ",
+      "type": "StringField"
+    },
+    {
+      "name": "OTHER_CHARGES",
+      "formula": "{@OTHER_CHARGES}",
+      "text": "\r\n//tonumber({DataTable1.SHIPPING_CHARGES})\u002BTONUMBER({DataTable1.FREIGHT_CHARGES})\r\n\u0022$\u0022\u002B REPLACE({DataTable1.VAT_CHARGES},\u0022$\u0022,\u0022\u0022)\u002BREPLACE({DataTable1.OTHER_CHARGES},\u0022$\u0022,\u0022\u0022) \u002B REPLACE({DataTable1.SHIPPING_CHARGES},\u0022$\u0022,\u0022\u0022)",
+      "type": "StringField"
+    },
+    {
+      "name": "exc_rate",
+      "formula": "{@exc_rate}",
+      "text": " Round(1 / ToNumber({DataTable1.LOCAL_EXCHANGE_RATE}), 3)",
+      "type": "NumberField"
+    },
+    {
+      "name": "charges_type",
+      "formula": "{@charges_type}",
+      "text": "IF ({DataTable1.CHARGES_TYPE1}) like \u0022*Vat*\u0022 then \u0027Vat Charges\u0027 else {DataTable1.CHARGES_TYPE1}\r\n//if {DataTable1.CHARGES_TYPE1} in [\u0022Vat Charges\u0022] then \u0022p\u0022 else \u0022x\u0022\r\n//{DataTable1.CHARGES_TYPE1}",
+      "type": "StringField"
+    }
+  ],
+  "parameterFields": [],
+  "groups": [],
+  "sections": [
+    {
+      "name": "ReportHeaderSection1",
+      "kind": "ReportHeader",
+      "height": 4950,
+      "objects": [
+        {
+          "name": "Text7",
+          "kind": "TextObject",
+          "left": 2240,
+          "top": 504,
+          "width": 4200,
+          "height": 1080,
+          "text": "HOVENIERSSTRAAT NO. 2 Suite No. 708,\nBox No. 433, 2018 ANTWERP, BELGIUM\nBE:0439.113.159\nT: \u002B32 3 213 1157 F: \u002B32 3 213 1158\nEmail: kgk.antwerp@kgkmail.com",
+          "font": "Arial",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text8",
+          "kind": "TextObject",
+          "left": 2145,
+          "top": 845,
+          "width": 3945,
+          "height": 240,
+          "text": "",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": false
+        },
+        {
+          "name": "Text3",
+          "kind": "TextObject",
+          "left": 7660,
+          "top": 825,
+          "width": 945,
+          "height": 225,
+          "text": "Date:",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text31",
+          "kind": "TextObject",
+          "left": 7672,
+          "top": 1316,
+          "width": 1395,
+          "height": 240,
+          "text": "Shipped By:",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text32",
+          "kind": "TextObject",
+          "left": 7672,
+          "top": 1596,
+          "width": 1395,
+          "height": 240,
+          "text": "Insured By:",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "TransactionDate1",
+          "kind": "FieldObject",
+          "left": 8680,
+          "top": 825,
+          "width": 2205,
+          "height": 240,
+          "dataSource": "{DataTable1.SALE_DATE}",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text10",
+          "kind": "TextObject",
+          "left": 7000,
+          "top": 3140,
+          "width": 1395,
+          "height": 240,
+          "text": "Port of Loading:",
+          "font": "Verdana",
+          "fontSize": 7,
+          "bold": true
+        },
+        {
+          "name": "Text11",
+          "kind": "TextObject",
+          "left": 7000,
+          "top": 3380,
+          "width": 1395,
+          "height": 200,
+          "text": "Place of Supply:",
+          "font": "Verdana",
+          "fontSize": 7,
+          "bold": true
+        },
+        {
+          "name": "Text14",
+          "kind": "TextObject",
+          "left": 8880,
+          "top": 3380,
+          "width": 1800,
+          "height": 240,
+          "text": "Export",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text23",
+          "kind": "TextObject",
+          "left": 8880,
+          "top": 3140,
+          "width": 1800,
+          "height": 240,
+          "text": "Dubai, UAE",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text42",
+          "kind": "TextObject",
+          "left": 500,
+          "top": 2760,
+          "width": 840,
+          "height": 240,
+          "text": "Country :",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "TOPARTY1",
+          "kind": "FieldObject",
+          "left": 500,
+          "top": 1940,
+          "width": 4624,
+          "height": 195,
+          "dataSource": "{DataTable1.TO_PARTY_NAME}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text24",
+          "kind": "TextObject",
+          "left": 500,
+          "top": 2980,
+          "width": 840,
+          "height": 240,
+          "text": "Phone:",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Text4",
+          "kind": "TextObject",
+          "left": 504,
+          "top": 4452,
+          "width": 4200,
+          "height": 240,
+          "text": "Details",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text5",
+          "kind": "TextObject",
+          "left": 6048,
+          "top": 4452,
+          "width": 980,
+          "height": 240,
+          "text": "Carats\n",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Line33",
+          "kind": "LineObject",
+          "left": 5935,
+          "top": 4368,
+          "width": 0,
+          "height": 4348
+        },
+        {
+          "name": "Box5",
+          "kind": "BoxObject",
+          "left": 476,
+          "top": 4368,
+          "width": 9996,
+          "height": 444
+        },
+        {
+          "name": "Line1",
+          "kind": "LineObject",
+          "left": 8630,
+          "top": 4368,
+          "width": 0,
+          "height": 4116
+        },
+        {
+          "name": "Box3",
+          "kind": "BoxObject",
+          "left": 476,
+          "top": 4368,
+          "width": 9990,
+          "height": 4144
+        },
+        {
+          "name": "Line15",
+          "kind": "LineObject",
+          "left": 7070,
+          "top": 4368,
+          "width": 0,
+          "height": 2212
+        },
+        {
+          "name": "Text38",
+          "kind": "TextObject",
+          "left": 495,
+          "top": 1650,
+          "width": 3465,
+          "height": 240,
+          "text": "Bill To:",
+          "font": "Verdana",
+          "fontSize": 10,
+          "bold": true
+        },
+        {
+          "name": "Box4",
+          "kind": "BoxObject",
+          "left": 450,
+          "top": 1575,
+          "width": 3480,
+          "height": 360
+        },
+        {
+          "name": "Text1",
+          "kind": "TextObject",
+          "left": 3180,
+          "top": 2310,
+          "width": 3465,
+          "height": 240,
+          "text": "TRN NO. 100247370800003",
+          "font": "Verdana",
+          "fontSize": 10,
+          "bold": true
+        },
+        {
+          "name": "BILLOFENTRYNO1",
+          "kind": "FieldObject",
+          "left": 7660,
+          "top": 585,
+          "width": 2610,
+          "height": 240,
+          "dataSource": "{DataTable1.BILL_OF_ENTRY_NO}",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "TOPARTYADDRESS1",
+          "kind": "FieldObject",
+          "left": 500,
+          "top": 2165,
+          "width": 4624,
+          "height": 605,
+          "dataSource": "{DataTable1.TO_PARTY_ADDRESS}",
+          "font": "Verdana",
+          "fontSize": 7,
+          "bold": false
+        },
+        {
+          "name": "TPOFCPHONE1",
+          "kind": "FieldObject",
+          "left": 1290,
+          "top": 2995,
+          "width": 3237,
+          "height": 240,
+          "dataSource": "{DataTable1.TPOFCPHONE}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "COUNTRYOFFINALDEST1",
+          "kind": "FieldObject",
+          "left": 1300,
+          "top": 2760,
+          "width": 2437,
+          "height": 240,
+          "dataSource": "{DataTable1.COUNTRY_OF_FINAL_DEST}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Text17",
+          "kind": "TextObject",
+          "left": 2268,
+          "top": 140,
+          "width": 3405,
+          "height": 330,
+          "text": "KGK DIAMONDS BV",
+          "font": "Times New Roman",
+          "fontSize": 14,
+          "bold": true
+        },
+        {
+          "name": "Text29",
+          "kind": "TextObject",
+          "left": 500,
+          "top": 3640,
+          "width": 825,
+          "height": 240,
+          "text": "Remark:",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "TPPAN1",
+          "kind": "FieldObject",
+          "left": 1350,
+          "top": 3640,
+          "width": 9850,
+          "height": 675,
+          "dataSource": "{DataTable1.TPPAN}",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": false
+        },
+        {
+          "name": "Text35",
+          "kind": "TextObject",
+          "left": 7660,
+          "top": 1050,
+          "width": 1215,
+          "height": 240,
+          "text": "Delivery Date:",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "SALEDATE1",
+          "kind": "FieldObject",
+          "left": 8680,
+          "top": 1050,
+          "width": 2205,
+          "height": 240,
+          "dataSource": "{DataTable1.SALE_DATE}",
+          "font": "Arial",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "TPFACFAX1",
+          "kind": "FieldObject",
+          "left": 500,
+          "top": 3444,
+          "width": 3616,
+          "height": 210,
+          "dataSource": "{DataTable1.TPFACFAX}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Text13",
+          "kind": "TextObject",
+          "left": 8792,
+          "top": 4452,
+          "width": 1582,
+          "height": 240,
+          "text": "Total USD",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text6",
+          "kind": "TextObject",
+          "left": 7112,
+          "top": 4452,
+          "width": 1440,
+          "height": 240,
+          "text": "PPC",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "TPOFCFAX1",
+          "kind": "FieldObject",
+          "left": 500,
+          "top": 3220,
+          "width": 3364,
+          "height": 210,
+          "dataSource": "{DataTable1.TPOFCFAX}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Box1",
+          "kind": "BoxObject",
+          "left": 7605,
+          "top": 105,
+          "width": 3315,
+          "height": 330
+        },
+        {
+          "name": "Text36",
+          "kind": "TextObject",
+          "left": 7660,
+          "top": 150,
+          "width": 1890,
+          "height": 240,
+          "text": "I N V O I C E",
+          "font": "Arial",
+          "fontSize": 10,
+          "bold": true
+        },
+        {
+          "name": "SHIPPEDBY1",
+          "kind": "FieldObject",
+          "left": 8680,
+          "top": 1316,
+          "width": 2205,
+          "height": 240,
+          "dataSource": "{DataTable1.SHIPPED_BY}",
+          "font": "Arial",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "ISSUREDBY1",
+          "kind": "FieldObject",
+          "left": 8680,
+          "top": 1596,
+          "width": 2205,
+          "height": 240,
+          "dataSource": "{DataTable1.ISSURED_BY}",
+          "font": "Arial",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Picture1",
+          "kind": "PictureObject",
+          "left": 665,
+          "top": 25,
+          "width": 1095,
+          "height": 1455
+        }
+      ]
+    },
+    {
+      "name": "PageHeaderSection3",
+      "kind": "PageHeader",
+      "height": 240,
+      "objects": []
+    },
+    {
+      "name": "DetailSection1",
+      "kind": "Detail",
+      "height": 240,
+      "objects": [
+        {
+          "name": "Line5",
+          "kind": "LineObject",
+          "left": 480,
+          "top": 204,
+          "width": 9965,
+          "height": 0
+        },
+        {
+          "name": "AMOUNTDOLLAR1",
+          "kind": "FieldObject",
+          "left": 8792,
+          "top": 0,
+          "width": 1582,
+          "height": 240,
+          "dataSource": "{DataTable1.AMOUNT_DOLLAR}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "RATEDOLLAR1",
+          "kind": "FieldObject",
+          "left": 7112,
+          "top": 0,
+          "width": 1440,
+          "height": 240,
+          "dataSource": "{DataTable1.RATE_DOLLAR}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text49",
+          "kind": "TextObject",
+          "left": 600,
+          "top": 0,
+          "width": 4065,
+          "height": 204,
+          "text": "Polished Natural Diamonds",
+          "font": "Arial",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "SALECARAT1",
+          "kind": "FieldObject",
+          "left": 6048,
+          "top": 0,
+          "width": 988,
+          "height": 240,
+          "dataSource": "{DataTable1.SALE_CARAT}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        }
+      ]
+    },
+    {
+      "name": "ReportFooterSection4",
+      "kind": "ReportFooter",
+      "height": 298,
+      "objects": [
+        {
+          "name": "AMOUNTDOLLAR2",
+          "kind": "FieldObject",
+          "left": 8792,
+          "top": 28,
+          "width": 1582,
+          "height": 240,
+          "dataSource": "{DataTable1.AMOUNT_DOLLAR}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text41",
+          "kind": "TextObject",
+          "left": 7112,
+          "top": 58,
+          "width": 1440,
+          "height": 240,
+          "text": "Total USD",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "SALECARAT2",
+          "kind": "FieldObject",
+          "left": 6048,
+          "top": 58,
+          "width": 980,
+          "height": 240,
+          "dataSource": "{DataTable1.SALE_CARAT}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text27",
+          "kind": "TextObject",
+          "left": 1710,
+          "top": 58,
+          "width": 4175,
+          "height": 240,
+          "text": "Total :",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Line2",
+          "kind": "LineObject",
+          "left": 476,
+          "top": 252,
+          "width": 9965,
+          "height": 0
+        }
+      ]
+    },
+    {
+      "name": "ReportFooterSection5",
+      "kind": "ReportFooter",
+      "height": 296,
+      "objects": [
+        {
+          "name": "OTHERCHARGES1",
+          "kind": "FieldObject",
+          "left": 8792,
+          "top": 56,
+          "width": 1582,
+          "height": 240,
+          "dataSource": "{@OTHER_CHARGES}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Line32",
+          "kind": "LineObject",
+          "left": 476,
+          "top": 276,
+          "width": 9996,
+          "height": 0
+        },
+        {
+          "name": "chargestype1",
+          "kind": "FieldObject",
+          "left": 5992,
+          "top": 56,
+          "width": 2492,
+          "height": 240,
+          "dataSource": "{@charges_type}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        }
+      ]
+    },
+    {
+      "name": "ReportFooterSection6",
+      "kind": "ReportFooter",
+      "height": 296,
+      "objects": [
+        {
+          "name": "Text19",
+          "kind": "TextObject",
+          "left": 5992,
+          "top": 56,
+          "width": 2492,
+          "height": 239,
+          "text": "Freight Charges",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Line7",
+          "kind": "LineObject",
+          "left": 476,
+          "top": 280,
+          "width": 9996,
+          "height": 0
+        },
+        {
+          "name": "FREIGHTCHARGES1",
+          "kind": "FieldObject",
+          "left": 8792,
+          "top": 56,
+          "width": 1582,
+          "height": 240,
+          "dataSource": "{DataTable1.FREIGHT_CHARGES}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        }
+      ]
+    },
+    {
+      "name": "ReportFooterSection1",
+      "kind": "ReportFooter",
+      "height": 5712,
+      "objects": [
+        {
+          "name": "AMOUNTINWORD1",
+          "kind": "FieldObject",
+          "left": 5628,
+          "top": 896,
+          "width": 3457,
+          "height": 240,
+          "dataSource": "{@AMOUNT IN WORD}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Text20",
+          "kind": "TextObject",
+          "left": 7112,
+          "top": 28,
+          "width": 1440,
+          "height": 315,
+          "text": "Grand Total ",
+          "font": "Verdana",
+          "fontSize": 11,
+          "bold": true
+        },
+        {
+          "name": "Box2",
+          "kind": "BoxObject",
+          "left": 504,
+          "top": 1540,
+          "width": 5655,
+          "height": 510
+        },
+        {
+          "name": "Line4",
+          "kind": "LineObject",
+          "left": 532,
+          "top": 1780,
+          "width": 5660,
+          "height": 0
+        },
+        {
+          "name": "Text26",
+          "kind": "TextObject",
+          "left": 588,
+          "top": 1568,
+          "width": 1485,
+          "height": 240,
+          "text": "Payment Terms",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Text30",
+          "kind": "TextObject",
+          "left": 588,
+          "top": 1848,
+          "width": 1425,
+          "height": 240,
+          "text": "Due Date:",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Line9",
+          "kind": "LineObject",
+          "left": 4190,
+          "top": 1540,
+          "width": 0,
+          "height": 510
+        },
+        {
+          "name": "Text34",
+          "kind": "TextObject",
+          "left": 504,
+          "top": 2156,
+          "width": 4485,
+          "height": 240,
+          "text": "SHIPPING CHARGES: \n",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text28",
+          "kind": "TextObject",
+          "left": 504,
+          "top": 2436,
+          "width": 1440,
+          "height": 240,
+          "text": "Bank Details\n",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "PAYMENTDATE1",
+          "kind": "FieldObject",
+          "left": 2212,
+          "top": 1820,
+          "width": 1910,
+          "height": 180,
+          "dataSource": "{DataTable1.PAYMENT_DATE}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "PAYMENTDAYS1",
+          "kind": "FieldObject",
+          "left": 2212,
+          "top": 1596,
+          "width": 1805,
+          "height": 180,
+          "dataSource": "{DataTable1.PAYMENT_DAYS}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Line6",
+          "kind": "LineObject",
+          "left": 2145,
+          "top": 1568,
+          "width": 0,
+          "height": 485
+        },
+        {
+          "name": "INVSIZE1",
+          "kind": "FieldObject",
+          "left": 2604,
+          "top": 2156,
+          "width": 1995,
+          "height": 240,
+          "dataSource": "{DataTable1.INV_SIZE}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "THROUGH1",
+          "kind": "FieldObject",
+          "left": 1960,
+          "top": 2436,
+          "width": 9474,
+          "height": 1904,
+          "dataSource": "{DataTable1.THROUGH}",
+          "font": "Arial",
+          "fontSize": 7,
+          "bold": true
+        },
+        {
+          "name": "Text18",
+          "kind": "TextObject",
+          "left": 7924,
+          "top": 5208,
+          "width": 2205,
+          "height": 240,
+          "text": "KGK DIAMOND DMCC",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text12",
+          "kind": "TextObject",
+          "left": 7672,
+          "top": 5208,
+          "width": 360,
+          "height": 240,
+          "text": "For",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "Text16",
+          "kind": "TextObject",
+          "left": 7616,
+          "top": 5012,
+          "width": 3795,
+          "height": 240,
+          "text": "AUTHORISED SIGNATORY\n",
+          "font": "Verdana",
+          "fontSize": 9,
+          "bold": true
+        },
+        {
+          "name": "INVPURITY1",
+          "kind": "FieldObject",
+          "left": 504,
+          "top": 1148,
+          "width": 9690,
+          "height": 255,
+          "dataSource": "{DataTable1.INV_PURITY}",
+          "font": "Verdana",
+          "fontSize": 7,
+          "bold": false
+        },
+        {
+          "name": "Text2",
+          "kind": "TextObject",
+          "left": 504,
+          "top": 840,
+          "width": 5115,
+          "height": 240,
+          "text": " Payable only in USD",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "NETAMOUNTDOLLAR1",
+          "kind": "FieldObject",
+          "left": 8792,
+          "top": 56,
+          "width": 1582,
+          "height": 240,
+          "dataSource": "{DataTable1.NET_AMOUNT_DOLLAR}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "Text15",
+          "kind": "TextObject",
+          "left": 504,
+          "top": 504,
+          "width": 5180,
+          "height": 240,
+          "text": "1 Euro =  {@exc_rate} USD",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "NETAMOUNTDOLLAR2",
+          "kind": "FieldObject",
+          "left": 4284,
+          "top": 1792,
+          "width": 1736,
+          "height": 240,
+          "dataSource": "{DataTable1.NET_AMOUNT_DOLLAR}",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": true
+        },
+        {
+          "name": "cONTAIN1",
+          "kind": "FieldObject",
+          "left": 532,
+          "top": 4424,
+          "width": 10864,
+          "height": 1260,
+          "dataSource": "{@cONTAIN}",
+          "font": "Verdana",
+          "fontSize": 7,
+          "bold": false
+        }
+      ]
+    },
+    {
+      "name": "ReportFooterSection3",
+      "kind": "ReportFooter",
+      "height": 2604,
+      "objects": [
+        {
+          "name": "PAYMENTINSTRUCTIONS1",
+          "kind": "FieldObject",
+          "left": 532,
+          "top": 84,
+          "width": 10920,
+          "height": 2520,
+          "dataSource": "{DataTable1.PAYMENT_INSTRUCTIONS}",
+          "font": "Verdana",
+          "fontSize": 7,
+          "bold": false
+        }
+      ]
+    },
+    {
+      "name": "PageFooterSection1",
+      "kind": "PageFooter",
+      "height": 1260,
+      "objects": [
+        {
+          "name": "Text37",
+          "kind": "TextObject",
+          "left": 5070,
+          "top": 90,
+          "width": 6345,
+          "height": 480,
+          "text": "Unit No:3506-07-08 Platium Tower, Plot No JLT-PH1-I2, Jumeriah Lakes Towers, P.O Box 239254, Dubai, United Arab Emirates\nT  \u002B97144456811     F  \u002B971 44456812   E diatrade.dubai@kgkmail.com   W : kgkgroup.com",
+          "font": "Verdana",
+          "fontSize": 8,
+          "bold": false
+        },
+        {
+          "name": "Line3",
+          "kind": "LineObject",
+          "left": 240,
+          "top": 20,
+          "width": 10905,
+          "height": 0
+        }
+      ]
+    }
+  ]
+}

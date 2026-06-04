@@ -1,0 +1,352 @@
+{
+  "id": "export-invoice-sale",
+  "title": "Export Invoice Sale",
+  "sourceRpt": "Export Invoice Sale.rpt",
+  "_note": "STARTER scaffold \u2014 bindings, grouping, totals and layout containers must be hand-finished. See report-framework/templates/export-invoice-sale.json for a complete example.",
+  "dataSource": {
+    "endpoint": "/api/v1/n1/dynamic-query-data",
+    "method": "GET",
+    "params": {
+      "location": "{{param.location}}",
+      "Name": "DataTable1",
+      "Criteria": "SALE_NO={{param.saleNo}}"
+    },
+    "rowsPath": "raw_response.Data"
+  },
+  "header": {},
+  "computed": {},
+  "groups": [],
+  "constants": {},
+  "body": [
+    {
+      "type": "text",
+      "text": "HOVENIERSSTRAAT NO. 2 Suite No. 708,\nBox No. 433, 2018 ANTWERP, BELGIUM\nBE:0439.113.159\nT: \u002B32 3 213 1157 F: \u002B32 3 213 1158\nEmail: kgk.antwerp@kgkmail.com",
+      "_hint": "section=ReportHeaderSection1, left=2240, top=504"
+    },
+    {
+      "type": "text",
+      "text": "",
+      "_hint": "section=ReportHeaderSection1, left=2145, top=845"
+    },
+    {
+      "type": "text",
+      "text": "Date:",
+      "_hint": "section=ReportHeaderSection1, left=7660, top=825"
+    },
+    {
+      "type": "text",
+      "text": "Shipped By:",
+      "_hint": "section=ReportHeaderSection1, left=7672, top=1316"
+    },
+    {
+      "type": "text",
+      "text": "Insured By:",
+      "_hint": "section=ReportHeaderSection1, left=7672, top=1596"
+    },
+    {
+      "type": "field",
+      "text": "{{header.saleDate}}",
+      "_hint": "crystalField={DataTable1.SALE_DATE}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "text",
+      "text": "Port of Loading:",
+      "_hint": "section=ReportHeaderSection1, left=7000, top=3140"
+    },
+    {
+      "type": "text",
+      "text": "Place of Supply:",
+      "_hint": "section=ReportHeaderSection1, left=7000, top=3380"
+    },
+    {
+      "type": "text",
+      "text": "Export",
+      "_hint": "section=ReportHeaderSection1, left=8880, top=3380"
+    },
+    {
+      "type": "text",
+      "text": "Dubai, UAE",
+      "_hint": "section=ReportHeaderSection1, left=8880, top=3140"
+    },
+    {
+      "type": "text",
+      "text": "Country :",
+      "_hint": "section=ReportHeaderSection1, left=500, top=2760"
+    },
+    {
+      "type": "field",
+      "text": "{{header.toPartyName}}",
+      "_hint": "crystalField={DataTable1.TO_PARTY_NAME}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "text",
+      "text": "Phone:",
+      "_hint": "section=ReportHeaderSection1, left=500, top=2980"
+    },
+    {
+      "type": "text",
+      "text": "Details",
+      "_hint": "section=ReportHeaderSection1, left=504, top=4452"
+    },
+    {
+      "type": "text",
+      "text": "Carats\n",
+      "_hint": "section=ReportHeaderSection1, left=6048, top=4452"
+    },
+    {
+      "type": "text",
+      "text": "Bill To:",
+      "_hint": "section=ReportHeaderSection1, left=495, top=1650"
+    },
+    {
+      "type": "text",
+      "text": "TRN NO. 100247370800003",
+      "_hint": "section=ReportHeaderSection1, left=3180, top=2310"
+    },
+    {
+      "type": "field",
+      "text": "{{header.billOfEntryNo}}",
+      "_hint": "crystalField={DataTable1.BILL_OF_ENTRY_NO}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.toPartyAddress}}",
+      "_hint": "crystalField={DataTable1.TO_PARTY_ADDRESS}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.tpofcphone}}",
+      "_hint": "crystalField={DataTable1.TPOFCPHONE}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.countryOfFinalDest}}",
+      "_hint": "crystalField={DataTable1.COUNTRY_OF_FINAL_DEST}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "text",
+      "text": "KGK DIAMONDS BV",
+      "_hint": "section=ReportHeaderSection1, left=2268, top=140"
+    },
+    {
+      "type": "text",
+      "text": "Remark:",
+      "_hint": "section=ReportHeaderSection1, left=500, top=3640"
+    },
+    {
+      "type": "field",
+      "text": "{{header.tppan}}",
+      "_hint": "crystalField={DataTable1.TPPAN}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "text",
+      "text": "Delivery Date:",
+      "_hint": "section=ReportHeaderSection1, left=7660, top=1050"
+    },
+    {
+      "type": "field",
+      "text": "{{header.saleDate}}",
+      "_hint": "crystalField={DataTable1.SALE_DATE}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.tpfacfax}}",
+      "_hint": "crystalField={DataTable1.TPFACFAX}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "text",
+      "text": "Total USD",
+      "_hint": "section=ReportHeaderSection1, left=8792, top=4452"
+    },
+    {
+      "type": "text",
+      "text": "PPC",
+      "_hint": "section=ReportHeaderSection1, left=7112, top=4452"
+    },
+    {
+      "type": "field",
+      "text": "{{header.tpofcfax}}",
+      "_hint": "crystalField={DataTable1.TPOFCFAX}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "text",
+      "text": "I N V O I C E",
+      "_hint": "section=ReportHeaderSection1, left=7660, top=150"
+    },
+    {
+      "type": "field",
+      "text": "{{header.shippedBy}}",
+      "_hint": "crystalField={DataTable1.SHIPPED_BY}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.issuredBy}}",
+      "_hint": "crystalField={DataTable1.ISSURED_BY}, section=ReportHeaderSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.amountDollar}}",
+      "_hint": "crystalField={DataTable1.AMOUNT_DOLLAR}, section=DetailSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.rateDollar}}",
+      "_hint": "crystalField={DataTable1.RATE_DOLLAR}, section=DetailSection1"
+    },
+    {
+      "type": "text",
+      "text": "Polished Natural Diamonds",
+      "_hint": "section=DetailSection1, left=600, top=0"
+    },
+    {
+      "type": "field",
+      "text": "{{header.saleCarat}}",
+      "_hint": "crystalField={DataTable1.SALE_CARAT}, section=DetailSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.amountDollar}}",
+      "_hint": "crystalField={DataTable1.AMOUNT_DOLLAR}, section=ReportFooterSection4"
+    },
+    {
+      "type": "text",
+      "text": "Total USD",
+      "_hint": "section=ReportFooterSection4, left=7112, top=58"
+    },
+    {
+      "type": "field",
+      "text": "{{header.saleCarat}}",
+      "_hint": "crystalField={DataTable1.SALE_CARAT}, section=ReportFooterSection4"
+    },
+    {
+      "type": "text",
+      "text": "Total :",
+      "_hint": "section=ReportFooterSection4, left=1710, top=58"
+    },
+    {
+      "type": "field",
+      "text": "{{header.@otherCharges}}",
+      "_hint": "crystalField={@OTHER_CHARGES}, section=ReportFooterSection5"
+    },
+    {
+      "type": "field",
+      "text": "{{header.@chargesType}}",
+      "_hint": "crystalField={@charges_type}, section=ReportFooterSection5"
+    },
+    {
+      "type": "text",
+      "text": "Freight Charges",
+      "_hint": "section=ReportFooterSection6, left=5992, top=56"
+    },
+    {
+      "type": "field",
+      "text": "{{header.freightCharges}}",
+      "_hint": "crystalField={DataTable1.FREIGHT_CHARGES}, section=ReportFooterSection6"
+    },
+    {
+      "type": "field",
+      "text": "{{header.@amount in word}}",
+      "_hint": "crystalField={@AMOUNT IN WORD}, section=ReportFooterSection1"
+    },
+    {
+      "type": "text",
+      "text": "Grand Total ",
+      "_hint": "section=ReportFooterSection1, left=7112, top=28"
+    },
+    {
+      "type": "text",
+      "text": "Payment Terms",
+      "_hint": "section=ReportFooterSection1, left=588, top=1568"
+    },
+    {
+      "type": "text",
+      "text": "Due Date:",
+      "_hint": "section=ReportFooterSection1, left=588, top=1848"
+    },
+    {
+      "type": "text",
+      "text": "SHIPPING CHARGES: \n",
+      "_hint": "section=ReportFooterSection1, left=504, top=2156"
+    },
+    {
+      "type": "text",
+      "text": "Bank Details\n",
+      "_hint": "section=ReportFooterSection1, left=504, top=2436"
+    },
+    {
+      "type": "field",
+      "text": "{{header.paymentDate}}",
+      "_hint": "crystalField={DataTable1.PAYMENT_DATE}, section=ReportFooterSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.paymentDays}}",
+      "_hint": "crystalField={DataTable1.PAYMENT_DAYS}, section=ReportFooterSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.invSize}}",
+      "_hint": "crystalField={DataTable1.INV_SIZE}, section=ReportFooterSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.through}}",
+      "_hint": "crystalField={DataTable1.THROUGH}, section=ReportFooterSection1"
+    },
+    {
+      "type": "text",
+      "text": "KGK DIAMOND DMCC",
+      "_hint": "section=ReportFooterSection1, left=7924, top=5208"
+    },
+    {
+      "type": "text",
+      "text": "For",
+      "_hint": "section=ReportFooterSection1, left=7672, top=5208"
+    },
+    {
+      "type": "text",
+      "text": "AUTHORISED SIGNATORY\n",
+      "_hint": "section=ReportFooterSection1, left=7616, top=5012"
+    },
+    {
+      "type": "field",
+      "text": "{{header.invPurity}}",
+      "_hint": "crystalField={DataTable1.INV_PURITY}, section=ReportFooterSection1"
+    },
+    {
+      "type": "text",
+      "text": " Payable only in USD",
+      "_hint": "section=ReportFooterSection1, left=504, top=840"
+    },
+    {
+      "type": "field",
+      "text": "{{header.netAmountDollar}}",
+      "_hint": "crystalField={DataTable1.NET_AMOUNT_DOLLAR}, section=ReportFooterSection1"
+    },
+    {
+      "type": "text",
+      "text": "1 Euro =  {@exc_rate} USD",
+      "_hint": "section=ReportFooterSection1, left=504, top=504"
+    },
+    {
+      "type": "field",
+      "text": "{{header.netAmountDollar}}",
+      "_hint": "crystalField={DataTable1.NET_AMOUNT_DOLLAR}, section=ReportFooterSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.@contain}}",
+      "_hint": "crystalField={@cONTAIN}, section=ReportFooterSection1"
+    },
+    {
+      "type": "field",
+      "text": "{{header.paymentInstructions}}",
+      "_hint": "crystalField={DataTable1.PAYMENT_INSTRUCTIONS}, section=ReportFooterSection3"
+    },
+    {
+      "type": "text",
+      "text": "Unit No:3506-07-08 Platium Tower, Plot No JLT-PH1-I2, Jumeriah Lakes Towers, P.O Box 239254, Dubai, United Arab Emirates\nT  \u002B97144456811     F  \u002B971 44456812   E diatrade.dubai@kgkmail.com   W : kgkgroup.com",
+      "_hint": "section=PageFooterSection1, left=5070, top=90"
+    }
+  ]
+}

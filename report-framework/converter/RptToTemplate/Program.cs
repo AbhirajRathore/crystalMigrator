@@ -108,9 +108,11 @@ internal static class Program
     {
         try
         {
-            // Available when the report was loaded for editing.
-            var sql = doc.ReportClientDocument?.RowSetController?
-                .GetSQLStatement(null, out _, out _);
+            // Available when the report was loaded for editing. Note: the property is
+            // RowsetController (lowercase 's') and GetSQLStatement takes a group path
+            // (null = whole report) plus a single reserved out-param in this runtime.
+            var sql = doc.ReportClientDocument?.RowsetController?
+                .GetSQLStatement(null, out _);
             if (!string.IsNullOrWhiteSpace(sql)) root["sql"] = sql;
         }
         catch { /* SQL not always retrievable; tables[].location is the fallback */ }
@@ -180,6 +182,10 @@ internal static class Program
         };
         switch (ro)
         {
+            // FieldHeadingObject derives from TextObject, so it must be matched first.
+            case FieldHeadingObject fh:
+                o["text"] = fh.Text;
+                break;
             case TextObject txt:
                 o["text"] = txt.Text;
                 o["font"] = txt.Font.Name;
@@ -191,9 +197,6 @@ internal static class Program
                 o["font"] = fld.Font.Name;
                 o["fontSize"] = fld.Font.Size;
                 o["bold"] = fld.Font.Bold;
-                break;
-            case FieldHeadingObject fh:
-                o["text"] = fh.Text;
                 break;
         }
         return o;
@@ -267,9 +270,10 @@ internal static class Program
     {
         if (string.IsNullOrWhiteSpace(formula)) return "FIELD";
         var raw = formula!.Trim('{', '}');
-        var field = raw.Contains('.') ? raw[(raw.LastIndexOf('.') + 1)..] : raw;
+        // net48 lacks System.Index/System.Range, so use Substring instead of [..] slicing.
+        var field = raw.Contains('.') ? raw.Substring(raw.LastIndexOf('.') + 1) : raw;
         var parts = field.ToLowerInvariant().Split('_');
         return parts[0] + string.Concat(parts.Skip(1).Select(p =>
-            p.Length == 0 ? "" : char.ToUpperInvariant(p[0]) + p[1..]));
+            p.Length == 0 ? "" : char.ToUpperInvariant(p[0]) + p.Substring(1)));
     }
 }

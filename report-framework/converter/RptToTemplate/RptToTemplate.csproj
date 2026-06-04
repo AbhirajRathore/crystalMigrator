@@ -7,29 +7,54 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <AssemblyName>rpt2template</AssemblyName>
-    <Platforms>x86;x64</Platforms>
-    <!-- CR runtime is bitness-specific; match it. x86 is the safest default. -->
-    <PlatformTarget>x86</PlatformTarget>
+    <Platforms>x64</Platforms>
+    <!--
+      CR runtime is bitness-specific; match the installed runtime. On this machine the
+      CrystalDecisions.ReportAppServer.* assemblies are registered only in GAC_64, so we
+      must build x64. If you ever target a 32-bit-only CR runtime, switch this to x86.
+    -->
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <!--
-    These assemblies ship with the FREE "SAP Crystal Reports, developer version
-    for Microsoft Visual Studio" (SP runtime). After installing it, they live in
-    the GAC and under the install folder. Adjust HintPath to your install, or
-    install the SAP.Sdk.CrystalReports NuGet if your org mirrors it.
+    These assemblies ship with the FREE "SAP Crystal Reports, developer version for
+    Microsoft Visual Studio" (the CRforVS runtime, version 13.x). On this machine they are
+    registered ONLY in the GAC. The `dotnet` CLI build engine does not search the legacy
+    .NET Framework GAC (C:\Windows\assembly), so we keep a local copy of the three needed
+    DLLs under .\libs and reference those by HintPath. Private=false means they are NOT
+    copied to the output folder — at runtime the CR runtime resolves them from the GAC.
+
+    To refresh these (e.g. after a CR runtime upgrade) copy them out of the GAC:
+      C:\Windows\assembly\GAC_MSIL\CrystalDecisions.CrystalReports.Engine\<ver>__692fbea5521e1304\
+      C:\Windows\assembly\GAC_MSIL\CrystalDecisions.Shared\<ver>__692fbea5521e1304\
+      C:\Windows\assembly\GAC_64\CrystalDecisions.ReportAppServer.ClientDoc\<ver>__692fbea5521e1304\
   -->
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <HintPath>libs\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
       <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
-      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <HintPath>libs\CrystalDecisions.Shared.dll</HintPath>
       <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc">
-      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <HintPath>libs\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
       <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+    </Reference>
+    <!-- Needed only for the optional SQL extraction: RowsetController.GetSQLStatement(ISCRGroupPath, out string). -->
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers">
+      <HintPath>libs\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel">
+      <HintPath>libs\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
     </Reference>
   </ItemGroup>
 

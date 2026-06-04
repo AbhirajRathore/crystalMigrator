@@ -28,13 +28,24 @@ internal static class Program
     {
         if (args.Length == 0)
         {
-            Console.Error.WriteLine("usage: rpt2template <file.rpt> [-o outDir]");
+            Console.Error.WriteLine(
+                "usage: rpt2template <file.rpt> [-o outDir] [--datasource VIEW_OR_SP] [--rowspath PATH] [--criteria \"SALE_NO={{param.saleNo}}\"]");
             return 1;
         }
         var rptPath = args[0];
         var outDir = "out";
-        for (var i = 1; i < args.Length - 1; i++)
-            if (args[i] == "-o") outDir = args[i + 1];
+        string? dataSourceOverride = null, rowsPathOverride = null, criteriaOverride = null;
+        for (var i = 1; i < args.Length; i++)
+        {
+            var next = i + 1 < args.Length ? args[i + 1] : null;
+            switch (args[i])
+            {
+                case "-o": outDir = next ?? outDir; i++; break;
+                case "--datasource": dataSourceOverride = next; i++; break;
+                case "--rowspath": rowsPathOverride = next; i++; break;
+                case "--criteria": criteriaOverride = next; i++; break;
+            }
+        }
         Directory.CreateDirectory(outDir);
 
         var doc = new ReportDocument();
@@ -47,7 +58,7 @@ internal static class Program
         File.WriteAllText(Path.Combine(outDir, baseName + ".extraction.json"),
             extraction.ToJsonString(opts));
 
-        var template = Scaffold(extraction, baseName);
+        var template = Scaffold(extraction, baseName, dataSourceOverride, rowsPathOverride, criteriaOverride);
         File.WriteAllText(Path.Combine(outDir, baseName + ".template.json"),
             template.ToJsonString(opts));
 
@@ -204,11 +215,54 @@ internal static class Program
 
     // ---- starter-template scaffold -----------------------------------------
 
-    private static JsonObject Scaffold(JsonObject extraction, string baseName)
+    /// <summary>
+    /// A generic ADO.NET table name (DataTable1, Table1, NewDataSet, ...) means the report
+    /// was built on a PUSHED dataset — the real view/SP name is NOT stored in the .rpt.
+    /// </summary>
+    private static bool IsGenericTableName(string? name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return true;
+        var n = name!.Trim();
+        return System.Text.RegularExpressions.Regex.IsMatch(
+            n, @"^(DataTable\d*|Table\d*|NewDataSet|Dataset\d*|Untitled.*)$",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+    }
+
+    /// <summary>Clean a Crystal table location like "db.dbo.USP_X;1" down to "USP_X".</summary>
+    private static string CleanName(string raw)
+    {
+        var n = raw;
+        var semi = n.IndexOf(';'); if (semi >= 0) n = n.Substring(0, semi); // strip proc ;1
+        var dot = n.LastIndexOf('.'); if (dot >= 0) n = n.Substring(dot + 1); // strip db.schema.
+        return n.Trim();
+    }
+
+    /// <summary>Best real data-source name from the tables, or null if all are generic pushed datasets.</summary>
+    private static string? DetectDataSourceName(JsonObject extraction)
+    {
+        if (extraction["tables"] is not JsonArray tables) return null;
+        foreach (var tn in tables)
+        {
+            var loc = (tn as JsonObject)?["location"]?.GetValue<string>();
+            if (!IsGenericTableName(loc)) return CleanName(loc!);
+            var nm = (tn as JsonObject)?["name"]?.GetValue<string>();
+            if (!IsGenericTableName(nm)) return CleanName(nm!);
+        }
+        return null;
+    }
+
+    private static JsonObject Scaffold(
+        JsonObject extraction, string baseName,
+        string? dataSourceOverride, string? rowsPathOverride, string? criteriaOverride)
     {
         var id = baseName.Trim().ToLowerInvariant().Replace(' ', '-');
-        var firstTable = (extraction["tables"] as JsonArray)?.FirstOrDefault() as JsonObject;
-        var viewName = firstTable?["location"]?.GetValue<string>() ?? "VIEW_NAME";
+
+        // 1) explicit override wins; 2) else auto-detect a real name; 3) else clear placeholder.
+        var detected = DetectDataSourceName(extraction);
+        var viewName = dataSourceOverride
+            ?? detected
+            ?? "REPLACE_WITH_VIEW_OR_SP_NAME";
+        var pushedDataset = dataSourceOverride is null && detected is null;
 
         var body = new JsonArray();
         foreach (var secNode in (JsonArray)extraction["sections"]!)
@@ -239,7 +293,7 @@ internal static class Program
             }
         }
 
-        return new JsonObject
+        var result = new JsonObject
         {
             ["id"] = id,
             ["title"] = baseName,
@@ -253,9 +307,9 @@ internal static class Program
                 {
                     ["location"] = "{{param.location}}",
                     ["Name"] = viewName,
-                    ["Criteria"] = "SALE_NO={{param.saleNo}}",
+                    ["Criteria"] = criteriaOverride ?? "SALE_NO={{param.saleNo}}",
                 },
-                ["rowsPath"] = "raw_response.Data",
+                ["rowsPath"] = rowsPathOverride ?? "raw_response.Data",
             },
             ["header"] = new JsonObject(),
             ["computed"] = new JsonObject(),
@@ -263,6 +317,15 @@ internal static class Program
             ["constants"] = new JsonObject(),
             ["body"] = body,
         };
+
+        if (pushedDataset)
+        {
+            ((JsonObject)result["dataSource"]!)["_dataSourceNote"] =
+                "This .rpt was built on a PUSHED dataset, so the real view/stored-proc name is NOT in the file " +
+                "(the report's fields read {DataTable1.*}). Set dataSource.params.Name to the actual view/SP, " +
+                "or re-run the converter with --datasource \"VIW_SALE_MASTER_DETAIL\".";
+        }
+        return result;
     }
 
     /// Turn a Crystal field formula like {VIW_SALE_MASTER_DETAIL.TO_PARTY_NAME} into a lower camel alias.
